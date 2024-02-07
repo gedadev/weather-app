@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0;
+    vertical-align: baseline;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #59B4C3;
+    color: #092635;
+    font-family: 'Poppins', sans-serif;
+}
+
+.current-weather {
+    margin: 15vh auto 1rem;
+    max-width: 500px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr 2fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.current-location {
+    grid-column: 1 / 3;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    align-self: end;
+}
+
+.current-temperature {
+    grid-column: 1 / 3;
+    font-size: 3.4rem;
+    font-weight: 600;
+}
+
+.current-temperature::after {
+    content: attr(units);
+    font-size: 1rem;
+}
+
+.current-icon {
+    width: 50px;
+}
+
+.current-minmax-temp {
+    grid-column: 1 / 3;
+    display: flex;
+    gap: 1.2rem;
+}
+
+.current-minmax-temp > span {
+    display: flex;
+    align-items: center;
+}

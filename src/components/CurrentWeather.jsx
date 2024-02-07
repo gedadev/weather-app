@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 export default function CurrentWeather({ city = "mexico" }) {
   const [currentWeatherData, setCurrentWeatherData] = useState({});
@@ -23,12 +25,25 @@ export default function CurrentWeather({ city = "mexico" }) {
 
   return (
     <section className="current-weather">
-      <p>{currentWeatherData.location}</p>
-      <p>{currentWeatherData.condition}</p>
-      <p>{currentWeatherData.temperature}</p>
-      <img src={currentWeatherData.icon} />
-      <p>{currentWeatherData.minTemperature}</p>
-      <p>{currentWeatherData.maxTemperature}</p>
+      <p className="current-location">
+        <img src={currentWeatherData.icon} className="current-icon" />
+        {currentWeatherData.location}
+        <img src={currentWeatherData.icon} className="current-icon" />
+      </p>
+      <p className="current-condition">{currentWeatherData.condition}</p>
+      <p
+        className="current-temperature"
+        // eslint-disable-next-line react/no-unknown-property
+        units="c"
+      >{`${currentWeatherData.temperature}°`}</p>
+      <div className="current-minmax-temp">
+        <span className="temp-icon">
+          <ArrowDropDownIcon />:{`${currentWeatherData.minTemperature}°c`}
+        </span>
+        <span className="temp-icon">
+          <ArrowDropUpIcon />:{`${currentWeatherData.maxTemperature}°c`}
+        </span>
+      </div>
     </section>
   );
 }
