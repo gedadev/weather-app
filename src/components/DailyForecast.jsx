@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+import DailyCard from "./DailyCard";
+import "../styles/dailyForecast.css";
 
 export default function DailyForecast({ city = "mexico" }) {
   const [dailyData, setDailyData] = useState([]);
@@ -16,7 +18,8 @@ export default function DailyForecast({ city = "mexico" }) {
     const days = data.forecast.forecastday;
     const updateData = days.map((day) => {
       return {
-        date: day.date,
+        date: day.date_epoch,
+        icon: day.day.condition.icon,
         minTemperature: day.day.mintemp_c,
         maxTemperature: day.day.maxtemp_c,
         sunrise: day.astro.sunrise,
@@ -28,7 +31,22 @@ export default function DailyForecast({ city = "mexico" }) {
     setDailyData(updateData);
   };
 
-  return <></>;
+  return (
+    <div className="daily-forecast-section">
+      {dailyData.map((day) => (
+        <DailyCard
+          key={day.date}
+          icon={day.icon}
+          date={day.date}
+          minTemperature={day.minTemperature}
+          maxTemperature={day.maxTemperature}
+          sunrise={day.sunrise}
+          sunset={day.sunset}
+          moonPhase={day.moonPhase}
+        />
+      ))}
+    </div>
+  );
 }
 
 DailyForecast.propTypes = {
