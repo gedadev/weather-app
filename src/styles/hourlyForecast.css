@@ -1,0 +1,32 @@
+.hourly-forecast-section {
+    max-width: min(1200px, 90%);
+    padding: 1rem;
+    margin: auto;
+    display: flex;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.hourly-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(209, 209, 209, 0.2);
+    box-shadow: 0 0 4px 1px black;
+    border-radius: 1rem;
+    padding: 1rem 1.8rem;
+}
+
+.hourly-card:hover {
+    background-color: rgba(209, 209, 209, 0.3);
+}
+
+.hourly-card > p:last-child {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.hourly-card svg {
+    width: 18px;
+}

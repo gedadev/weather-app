@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import HourlyCard from "./HourlyCard";
+import "../styles/hourlyForecast.css";
 
 export default function HourlyForecast({ city = "mexico" }) {
   const [hourlyData, setHourlyData] = useState([]);
@@ -37,13 +39,14 @@ export default function HourlyForecast({ city = "mexico" }) {
   return (
     <section className="hourly-forecast-section">
       {hourlyData.map((data) => (
-        <div key={data.hour}>
-          <p>{data.hour}</p>
-          <p>{data.condition}</p>
-          <img src={data.icon} />
-          <p>{data.temperature}</p>
-          <p>{data.chanceOfRain}</p>
-        </div>
+        <HourlyCard
+          key={data.hour}
+          hour={data.hour}
+          condition={data.condition}
+          icon={data.icon}
+          temperature={data.temperature}
+          chanceOfRain={data.chanceOfRain}
+        />
       ))}
     </section>
   );
