@@ -1,10 +1,18 @@
 .hourly-forecast-section {
-    max-width: min(1200px, 90%);
-    padding: 1rem;
+    max-width: min(1000px, 90%);
     margin: auto;
     display: flex;
     gap: 1rem;
+    align-items: center;
+}
+
+.cards-container {
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
     overflow: hidden;
+    position: relative;
 }
 
 .hourly-card {
@@ -15,6 +23,7 @@
     box-shadow: 0 0 4px 1px black;
     border-radius: 1rem;
     padding: 1rem 1.8rem;
+    transition: all 0.5s;
 }
 
 .hourly-card:hover {
@@ -29,4 +38,18 @@
 
 .hourly-card svg {
     width: 18px;
+    pointer-events: none;
+}
+
+.nav-arrow {
+    cursor: pointer;
+    transform: scale(1.8);
+}
+
+.nav-arrow:hover {
+    transform: scale(2);
+}
+
+.arrow-button {
+    background-color: rgba(255, 255, 255, 0);
 }
