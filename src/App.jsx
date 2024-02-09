@@ -4,18 +4,16 @@ import HourlyForecast from "./components/HourlyForecast";
 import DailyForecast from "./components/DailyForecast";
 import SearchIcon from "@mui/icons-material/Search";
 import { useEffect, useState } from "react";
+import Loader from "./components/Loader";
 
 function App() {
   const [search, setSearch] = useState("");
-  const [city, setCity] = useState("mexico");
+  const [city, setCity] = useState(null);
 
   useEffect(() => {
-    console.log("effect");
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log(position.coords.latitude.toFixed(4));
-          console.log(position.coords.longitude);
           setCity(
             `${position.coords.latitude.toFixed(
               4
@@ -55,9 +53,15 @@ function App() {
           </button>
         </div>
       </header>
-      <CurrentWeather city={city} />
-      <HourlyForecast city={city} />
-      <DailyForecast city={city} />
+      {!city ? (
+        <Loader />
+      ) : (
+        <>
+          <CurrentWeather city={city} />
+          <HourlyForecast city={city} />
+          <DailyForecast city={city} />
+        </>
+      )}
     </>
   );
 }
