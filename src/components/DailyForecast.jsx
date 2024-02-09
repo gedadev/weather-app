@@ -8,7 +8,7 @@ export default function DailyForecast({ city = "mexico" }) {
 
   useEffect(() => {
     fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=fe635530ff74438bbd623918240702&q=${city}&days=3`
+      `http://api.weatherapi.com/v1/forecast.json?key=fe635530ff74438bbd623918240702&q=${city}&days=5`
     )
       .then((response) => response.json())
       .then((data) => getData(data));
@@ -33,6 +33,7 @@ export default function DailyForecast({ city = "mexico" }) {
 
   return (
     <div className="daily-forecast-section">
+      <h2>Daily Forecast</h2>
       {dailyData.map((day) => (
         <DailyCard
           key={day.date}
