@@ -12,7 +12,7 @@ export default function CurrentWeather({ city = "mexico" }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        const updateData = currentWeatherData;
+        const updateData = { ...currentWeatherData };
         updateData.condition = data.current.condition.text;
         updateData.location = data.location.name;
         updateData.icon = data.current.condition.icon;
