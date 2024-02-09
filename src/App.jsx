@@ -33,6 +33,10 @@ function App() {
     setSearch(event.target.value);
   };
 
+  const handleKey = (event) => {
+    if (event.key === "Enter") setCity(search);
+  };
+
   const submitCity = () => {
     setCity(search);
   };
@@ -47,6 +51,7 @@ function App() {
             autoComplete="off"
             value={search}
             onChange={handleInput}
+            onKeyDown={handleKey}
           />
           <button type="button" onClick={submitCity}>
             <SearchIcon />
