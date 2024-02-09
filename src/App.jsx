@@ -3,11 +3,33 @@ import CurrentWeather from "./components/CurrentWeather";
 import HourlyForecast from "./components/HourlyForecast";
 import DailyForecast from "./components/DailyForecast";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [search, setSearch] = useState("");
   const [city, setCity] = useState("mexico");
+
+  useEffect(() => {
+    console.log("effect");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log(position.coords.latitude.toFixed(4));
+          console.log(position.coords.longitude);
+          setCity(
+            `${position.coords.latitude.toFixed(
+              4
+            )},${position.coords.longitude.toFixed(4)}`
+          );
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }, []);
 
   const handleInput = (event) => {
     setSearch(event.target.value);
