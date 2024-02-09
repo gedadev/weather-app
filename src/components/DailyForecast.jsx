@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import DailyCard from "./DailyCard";
 import "../styles/dailyForecast.css";
 
-export default function DailyForecast({ city = "mexico" }) {
+export default function DailyForecast({ city }) {
   const [dailyData, setDailyData] = useState([]);
 
   useEffect(() => {

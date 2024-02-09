@@ -5,7 +5,7 @@ import "../styles/hourlyForecast.css";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
-export default function HourlyForecast({ city = "mexico" }) {
+export default function HourlyForecast({ city }) {
   const [hourlyData, setHourlyData] = useState([]);
   const [slidePosition, setSlidePosition] = useState(0);
   const [buttonDisabled, setButtonDisabled] = useState({

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
-export default function CurrentWeather({ city = "mexico" }) {
+export default function CurrentWeather({ city }) {
   const [currentWeatherData, setCurrentWeatherData] = useState({});
 
   useEffect(() => {
