@@ -1,42 +1,87 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0;
+    vertical-align: baseline;
+    list-style: none;
+    text-decoration: none;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+    background-color: #59B4C3;
+    color: #092635;
+    font-family: 'Poppins', sans-serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.current-weather {
+    margin: 2rem auto;
+    max-width: 500px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr 2fr 1fr;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.current-location {
+    grid-column: 1 / 3;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    align-self: end;
 }
 
-.card {
-  padding: 2em;
+.current-temperature {
+    grid-column: 1 / 3;
+    font-size: 3.4rem;
+    font-weight: 600;
 }
 
-.read-the-docs {
-  color: #888;
+.current-temperature::after {
+    content: attr(units);
+    font-size: 1rem;
+}
+
+.current-icon {
+    width: 50px;
+}
+
+.current-minmax-temp {
+    grid-column: 1 / 3;
+    display: flex;
+    gap: 1.2rem;
+}
+
+.current-minmax-temp > span {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    margin: auto;
+    padding: 1rem 0;
+    max-width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-box > input {
+    width: 80%;
+    border-radius: 0.6rem;
+    background-color: rgba(231, 231, 231, 0.4);
+    padding: 0.2rem 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+}
+
+.search-box > button {
+    background-color: rgba(231, 231, 231, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
