@@ -8,7 +8,8 @@ export default function CurrentWeather({ city }) {
 
   useEffect(() => {
     fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=fe635530ff74438bbd623918240702&q=${city}`
+      `https://api.weatherapi.com/v1/forecast.json?key=fe635530ff74438bbd623918240702&q=${city}`,
+      { mode: "cors" }
     )
       .then((response) => response.json())
       .then((data) => {
