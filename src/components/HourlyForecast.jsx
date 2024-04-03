@@ -46,7 +46,10 @@ export default function HourlyForecast({ city }) {
   };
 
   const handleSlide = (position) => {
-    slidePosition + position < 0 && slidePosition + position > -2400
+    const containerWidth = cardsContainer.current.offsetWidth;
+
+    slidePosition + position < 0 &&
+    slidePosition + position > -3270 + containerWidth
       ? setButtonDisabled({ left: false, right: false })
       : slidePosition + position === 0
       ? setButtonDisabled({ left: true, right: false })
