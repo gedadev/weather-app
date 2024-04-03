@@ -4,7 +4,7 @@
 }
 
 .daily-card {
-    margin: 1rem 0;
+    margin: 1rem auto;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -34,4 +34,23 @@
 .daily-card span {
     display: flex;
     align-items: center;
+}
+
+@media(max-width: 800px) {
+    .daily-card {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin: 2rem auto;
+    }
+
+    .day-temperature, .day-astro {
+        width: 100%;
+    }
+
+    .day-astro {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
 }
